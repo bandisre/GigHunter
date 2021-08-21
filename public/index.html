@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Firebase Hosting</title>
     <link rel='stylesheet' href='static/main.css'>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      </style>
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/8.10.0/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -24,7 +27,59 @@
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
   </head>
   <body>
-    
+
+    <div class='sidebar'>
+      <div class='sidebar-container'>
+        <h1 class='name'>Name of Application</h1>
+
+        <div class='main-nav'>
+          <div class='nav-options'>
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="31.675" height="33.001" viewBox="0 0 31.675 33.001">
+              <g id="Group_1" data-name="Group 1" transform="translate(-391.094 -197.34) rotate(-42)">
+                <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(149 419)" fill="none" stroke="#535353" stroke-linecap="round" stroke-width="3">
+                  <circle cx="10.713" cy="10.713" r="10.713" stroke="none"/>
+                  <circle cx="10.713" cy="10.713" r="9.713" fill="none"/>
+                </g>
+                <line id="Line_1" data-name="Line 1" y2="11.645" transform="translate(159.946 440.426)" fill="none" stroke="#535353" stroke-linecap="round" stroke-width="3"/>
+              </g>
+            </svg>
+            <h1 class='nav-title'>Search</h1>            
+          </div>
+          <div class='nav-options'>
+            <svg class='map-icon' xmlns="http://www.w3.org/2000/svg" width="18.981" height="28.471" viewBox="0 0 18.981 28.471">
+              <g id="_299087_marker_map_icon" data-name="299087_marker_map_icon" transform="translate(-4 -1028.4)">
+                <path id="Path_1" data-name="Path 1" d="M13.49,0A9.469,9.469,0,0,0,5.223,14.124c.128.228.262.452.408.668L13.49,28.471l7.859-13.679c.121-.179.225-.369.333-.556l.075-.112A9.469,9.469,0,0,0,13.49,0Zm0,4.745A4.745,4.745,0,1,1,8.745,9.49,4.745,4.745,0,0,1,13.49,4.745Z" transform="translate(0 1028.4)" fill="#535353"/>
+                <path id="Path_2" data-name="Path 2" d="M12.931,3a5.931,5.931,0,1,0,5.931,5.931A5.931,5.931,0,0,0,12.931,3Zm0,2.373A3.559,3.559,0,1,1,9.373,8.931,3.559,3.559,0,0,1,12.931,5.373Z" transform="translate(0.559 1028.959)" fill="#a4a4a4"/>
+              </g>
+            </svg>
+            <h1 class='nav-title'>Map</h1>            
+          </div>
+          <div class='nav-options'>
+            <svg class='profile-icon' xmlns="http://www.w3.org/2000/svg" width="20.032" height="20" viewBox="0 0 20.032 20">
+              <g id="icons" transform="translate(-1.984 -2)">
+                <g id="user">
+                  <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="5" cy="6" rx="5" ry="6" transform="translate(7 2)" fill="#535353"/>
+                  <path id="Path_3" data-name="Path 3" d="M21.8,19.1A9.114,9.114,0,0,0,17,14.9a2.239,2.239,0,0,0-1.8.1,6.139,6.139,0,0,1-6.4,0A2.25,2.25,0,0,0,7,15a9.114,9.114,0,0,0-4.8,4.2A1.974,1.974,0,0,0,4.1,22H19.9A2.025,2.025,0,0,0,21.8,19.1Z" fill="#535353"/>
+                </g>
+              </g>
+            </svg>            
+            <h1 class='nav-title'>Profile</h1>            
+          </div>
+
+          <button class='googleAuth'>Login with Google</button>
+        </div>
+        <h3 class='settings'>Settings</h3>
+      </div>
+    </div>
+
+
+    <div class='results-wrapper'>
+    </div>
+    <div class='vendor-detail-wrapper'>
+      <div class='box-header'>
+        <h3 class='header-title'>Details</h1>
+      </div>
+    </div>
     <script src='app.js'></script>
   </body>
 </html>
