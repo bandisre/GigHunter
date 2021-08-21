@@ -66,20 +66,29 @@
             <h1 class='nav-title'>Profile</h1>            
           </div>
 
-          <button class='googleAuth'>Login with Google</button>
+          <button class='googleAuth' onclick = "googleSignIn()">Login with Google</button>
+          <button class='signOut'>Sign Out</button>
         </div>
         <h3 class='settings'>Settings</h3>
       </div>
     </div>
 
 
-    <div class='results-wrapper'>
-    </div>
+    <div class='results-wrapper'></div>
+
     <div class='vendor-detail-wrapper'>
       <div class='box-header'>
         <h3 class='header-title'>Details</h1>
       </div>
     </div>
+
+    <div class='profile-div'>
+      <div class='box-header'>
+        <h3 class='header-title'>Profile</h1>
+      </div>
+    </div>
+
     <script src='app.js'></script>
+    <script src="jquery-3.6.0.min.js"></script>
   </body>
 </html>
