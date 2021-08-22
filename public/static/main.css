@@ -214,7 +214,7 @@ body {
 }
 
 .googleAuth {
-    display: none;
+   
     border: 0;
     background: #de5246;
     padding: 0.8em 2em .8em 2em;
@@ -317,7 +317,7 @@ body {
     align-self: center;
 }
 
-#desc-input {
+#desc-input, #stg-input-vendor {
     resize: none;
 }
 
@@ -389,7 +389,7 @@ body {
     font-weight: 400;
     font-size: .9em;
     align-self: center;
-    left: 38em;
+    left: 35em;
 }
 
 .distance-input[type=text] {
@@ -583,4 +583,29 @@ body {
     font-size: .9em;
     font-weight: 400;;
     margin-left: 3.4em;
+}
+
+.drum {
+    fill: rgb(110, 110, 110);
+    width: 1.7em;
+    height: auto;
+}
+
+.drum > * {
+    fill: rgb(83, 83, 83);
+    transition: ease-in-out 0.15s ;
+}
+
+.nav-options:hover > .drum > * {
+    fill: #EE6C4D;
+}
+
+.create-div {
+    background: #fff;
+    border-radius: 0.7em;
+    height: 93vh;
+    width: 41em;
+    align-self: center;
+    margin-left: 1.7em;
+    box-shadow: 0px 3px 22px rgba(0,0,0,0.08);
 }
