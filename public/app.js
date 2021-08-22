@@ -87,3 +87,37 @@ document.querySelector('.save-btn').addEventListener('click', () => {
         Description_of_act_offered: $("#desc-input").val(),
     });
 })
+
+
+function initMap() {
+    const service = new google.maps.DistanceMatrixService(); // instantiate Distance Matrix servic
+    var origin1 = "575 Willmott Crescent, Milton, ON, CANADA";
+    var destination1 = "233 S Wacker Dr, Chicago, IL, USA";
+    const matrixOptions = {
+        origins: [origin1], // technician locations
+        destinations: [destination1], // customer address
+        travelMode: 'DRIVING',
+        unitSystem: google.maps.UnitSystem.METRIC
+      };
+      // Call Distance Matrix service
+      service.getDistanceMatrix(matrixOptions, callback);
+
+      // Callback function used to process Distance Matrix response
+      function callback(response, status) {
+        if (status == 'OK') {
+          var origins = response.originAddresses;
+          var destinations = response.destinationAddresses;
+      
+          for (var i = 0; i < origins.length; i++) {
+            var results = response.rows[i].elements;
+            for (var j = 0; j < results.length; j++) {
+              var element = results[j];
+              var distance = element.distance.text;
+              var from = origins[i];
+              var to = destinations[j];
+              console.log(distance);
+            }
+          }
+        }
+      }
+}
