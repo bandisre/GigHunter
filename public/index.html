@@ -20,6 +20,7 @@
     <script defer src="/__/firebase/8.10.0/firebase-analytics.js"></script>
     <script defer src="/__/firebase/8.10.0/firebase-remote-config.js"></script>
     <script defer src="/__/firebase/8.10.0/firebase-performance.js"></script>
+
     <!-- 
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
@@ -33,7 +34,7 @@
         <h1 class='name'>Name of Application</h1>
 
         <div class='main-nav'>
-          <div class='nav-options'>
+          <div id='search' class='nav-options'>
             <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="31.675" height="33.001" viewBox="0 0 31.675 33.001">
               <g id="Group_1" data-name="Group 1" transform="translate(-391.094 -197.34) rotate(-42)">
                 <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(149 419)" fill="none" stroke="#535353" stroke-linecap="round" stroke-width="3">
@@ -43,7 +44,7 @@
                 <line id="Line_1" data-name="Line 1" y2="11.645" transform="translate(159.946 440.426)" fill="none" stroke="#535353" stroke-linecap="round" stroke-width="3"/>
               </g>
             </svg>
-            <h1 class='nav-title'>Search</h1>            
+            <h1  class='nav-title'>Search</h1>            
           </div>
           <div class='nav-options'>
             <svg class='map-icon' xmlns="http://www.w3.org/2000/svg" width="18.981" height="28.471" viewBox="0 0 18.981 28.471">
@@ -52,7 +53,7 @@
                 <path id="Path_2" data-name="Path 2" d="M12.931,3a5.931,5.931,0,1,0,5.931,5.931A5.931,5.931,0,0,0,12.931,3Zm0,2.373A3.559,3.559,0,1,1,9.373,8.931,3.559,3.559,0,0,1,12.931,5.373Z" transform="translate(0.559 1028.959)" fill="#a4a4a4"/>
               </g>
             </svg>
-            <h1 class='nav-title'>Map</h1>            
+            <h1 id='map_' class='nav-title'>Map</h1>            
           </div>
           <div class='nav-options'>
             <svg class='profile-icon' xmlns="http://www.w3.org/2000/svg" width="20.032" height="20" viewBox="0 0 20.032 20">
@@ -63,7 +64,7 @@
                 </g>
               </g>
             </svg>            
-            <h1 class='nav-title'>Profile</h1>            
+            <h1 id='profile' class='nav-title'>Profile</h1>            
           </div>
 
           <button class='googleAuth' onclick = "googleSignIn()">Login with Google</button>
@@ -73,7 +74,7 @@
       </div>
     </div>
 
-
+    <div id='map'>Random Text</div>
     <div class='results-wrapper'></div>
 
     <div class='vendor-detail-wrapper'>
@@ -86,9 +87,48 @@
       <div class='box-header'>
         <h3 class='header-title'>Profile</h1>
       </div>
+
+      <div class='profile-container'>
+
+        <div class='pf-header'>
+          <img class='pfp' src="#"> 
+          <h2 class='pf-email'>testemail@gmail.com</h2>
+        </div>
+      
+        <div class='pf-form'>
+          <div class='pf-div'>
+            <h2 class='pf'>Name</h2>
+            <input type='text' id='name-input' class='pf-input'> 
+          </div>
+          <div class='pf-div'>
+            <h2 class='pf'>Phone Number</h2>
+            <input type='text' id='phone-input' class='pf-input'>
+          </div>
+        
+          <div class='pf-div'>
+            <h2 class='pf'>Number of People</h2>
+            <input type='text' id='ppl-input' class='pf-input'>
+          </div>
+        
+          <div class='pf-div'>
+            <h2 class='pf'>Genre</h2>
+            <input type='text' id='genre-input' class='pf-input'>
+          </div>
+        
+          <div class='pf-div'>
+            <h2 class='pf'>Description of Act Offered</h2>
+            <textarea id='desc-input' class='pf-input' rows='13'></textarea>
+          </div>
+
+        </div>
+      </div>
     </div>
 
+    <script async src='https://maps.googleapis.com/maps/api/js?key=AIzaSyD4e8vmefC0zq94Ow5n4D8ToOai4YAwLc8&libraries=places&callback=initMap'></script>
+
+
     <script src='app.js'></script>
+    <script src='index.js'></script>
     <script src="jquery-3.6.0.min.js"></script>
   </body>
 </html>

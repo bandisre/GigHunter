@@ -41,6 +41,7 @@ body {
 }
 
 .profile-div {
+    display: none;
     background: #fff;
     border-radius: 0.7em;
     height: 93vh;
@@ -251,4 +252,77 @@ body {
 .signOut:hover {
     background: #264d80;
     cursor: pointer;
+}
+
+/* profile page styling */
+.profile-container {
+    height: 44em;
+    width: 85%;
+    margin-left: 3em;
+    margin-top: 3em;
+}
+
+.pf-header {
+    display: flex;
+}
+
+.pfp {
+    display: inline-block;
+    border-radius: 50% ;
+    align-self: center;
+}
+
+.pf-email {
+    display: inline;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(53, 53, 53);
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-left: 2em;
+    align-self: center;
+}
+
+.pf-form {
+    margin-top: 3em;
+}
+
+.pf-div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.pf {
+    display: inline;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(53, 53, 53);
+    font-size: .9em;
+    font-weight: 500;
+    word-wrap: break-word;
+    max-width: 10em;
+    align-self: center;
+}
+
+.pf-input {
+    display: inline-block;
+    border-radius: .7em;
+    padding: 0.8em;
+    width: 23em;
+    border: 0;
+    outline: none;
+    background: #293241;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: .9em;
+    align-self: center;
+}
+
+#desc-input {
+    resize: none;
+}
+
+#map {
+    width: 50em;
+    height: 50em;
 }
