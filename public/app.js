@@ -1,3 +1,6 @@
+// $(".profile-div").fadeOut(0);
+// $(".vendor-detail-wrapper").fadeOut(0);
+
 document.addEventListener("DOMContentLoaded", event => {
     const app = firebase.app();
 
@@ -6,6 +9,7 @@ document.addEventListener("DOMContentLoaded", event => {
         if (user) {
             $('.signOut').show();
             checkIfExistsorCreateProfile(user)
+            getUserProfilePic(user);
         }
 
         else {
@@ -43,4 +47,20 @@ function checkIfExistsorCreateProfile(user) {
 
 function updateProfileDOM(doc) {
 
+}
+
+function getUserProfilePic(user) {
+    user.providerData.forEach(profile => {
+        $('.pfp').attr('src', profile.photoURL)
+    })
+}
+
+
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
 }
