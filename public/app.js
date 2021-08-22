@@ -2,6 +2,7 @@ $(".profile-div").fadeOut(0);
 $(".vendor-detail-wrapper").fadeOut(0);
 $(".profile-div").fadeOut(0);
 $(".map-page").fadeOut(0);
+$(".create-div").fadeOut(0);
 
 document.addEventListener("DOMContentLoaded", event => {
     const app = firebase.app();
@@ -69,12 +70,6 @@ function getUserProfilePic(user) {
 
 let map;
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 12,
-  });
-}
 
 document.querySelector('.save-btn').addEventListener('click', () => {
     const db = firebase.firestore();
@@ -90,6 +85,10 @@ document.querySelector('.save-btn').addEventListener('click', () => {
 
 
 function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 12,
+      });
     const service = new google.maps.DistanceMatrixService(); // instantiate Distance Matrix servic
     var origin1 = "575 Willmott Crescent, Milton, ON, CANADA";
     var destination1 = "233 S Wacker Dr, Chicago, IL, USA";
@@ -121,3 +120,21 @@ function initMap() {
         }
       }
 }
+
+document.querySelector('#create').addEventListener('click', () => {
+    console.log('works')    
+    const db = firebase.firestore();
+    db.collection('vendors').doc(document.querySelector('#name-input-vendor').value).set({
+        vendorName: document.querySelector('#name-input-vendor').value,
+        Location: document.querySelector('#location-input-vendor').value,
+        Phone_Number: document.querySelector('#phone-input-vendor').value,
+        Stage_Details: document.querySelector('#stg-input-vendor').value,
+        Email: document.querySelector('#email-input-vendor').value,
+    }).then(data => {
+        document.querySelector('#name-input-vendor').value = "";
+        document.querySelector('#location-input-vendor').value = "";
+        document.querySelector('#phone-input-vendor').value = "";
+        document.querySelector('#stg-input-vendor').value = "";
+        document.querySelector('#email-input-vendor').value = "";
+    });
+})

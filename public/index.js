@@ -3,12 +3,14 @@ document.querySelector('#search').addEventListener('click', () => {
     $('.results-wrapper').fadeIn(350);
     $(".profile-div").fadeOut(0);
     $(".map-page").fadeOut(0);
+    $(".create-div").fadeOut(0);
 })
 
 document.querySelector('#profile-button').addEventListener('click', () => {
     $('.vendor-detail-wrapper').fadeOut(0);
     $('.results-wrapper').fadeOut(0);
     $(".map-page").fadeOut(0);
+    $(".create-div").fadeOut(0);
     $(".profile-div").fadeIn(350);
 })
 
@@ -16,5 +18,14 @@ document.querySelector('#map-button').addEventListener('click', () => {
     $('.vendor-detail-wrapper').fadeOut(0);
     $('.results-wrapper').fadeOut(0);
     $(".profile-div").fadeOut(0);
+    $(".create-div").fadeOut(0);
     $(".map-page").fadeIn(350);
+})
+
+document.querySelector('#create-button').addEventListener('click', () => {
+    $('.vendor-detail-wrapper').fadeOut(0);
+    $('.results-wrapper').fadeOut(0);
+    $(".profile-div").fadeOut(0);
+    $(".create-div").fadeIn(350);
+    $(".map-page").fadeOut(0);
 })
