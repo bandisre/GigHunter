@@ -441,6 +441,11 @@ body {
     transition: ease-in-out .15s;
 }
 
+.search-button:hover {
+    background-color: #bb4629;
+    cursor: pointer;
+}
+
 .result-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -537,6 +542,7 @@ body {
 }
 
 .phone-svg {
+    display: none;
     align-self: center;
     width: auto;
     height: 1.6em;
@@ -561,6 +567,7 @@ body {
 }
 
 .email-svg {
+    display: none;
     align-self: center;
     width: auto;
     height: 1.6em;
