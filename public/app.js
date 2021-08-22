@@ -1,6 +1,7 @@
 $(".profile-div").fadeOut(0);
 $(".vendor-detail-wrapper").fadeOut(0);
 $(".profile-div").fadeOut(0);
+$(".map-page").fadeOut(0);
 
 document.addEventListener("DOMContentLoaded", event => {
     const app = firebase.app();
@@ -9,11 +10,13 @@ document.addEventListener("DOMContentLoaded", event => {
     auth.onAuthStateChanged(user => {
         if (user) {
             $('.signOut').show();
+            $('.googleAuth').hide();
             checkIfExistsorCreateProfile(user)
             getUserProfilePic(user);
         }
         else {
             $('.googleAuth').show();
+            $('.signOut').hide();
         }
     })
 }); 
@@ -23,6 +26,11 @@ function googleSignIn() {
     firebase.auth().signInWithPopup(provider)
 }
 
+function googleSignOut() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signOut()
+}
+
 function checkIfExistsorCreateProfile(user) {
     const db = firebase.firestore();
     const userRef = db.collection('users').doc(user.email);
@@ -30,7 +38,14 @@ function checkIfExistsorCreateProfile(user) {
     userRef.get()
         .then(doc => {
             if (doc.exists) {
-                updateProfileDOM(doc);
+                var user_data = doc.data();
+
+                $("#name-input").attr("value", user_data.userName);
+                $("#phone-input").attr("value", user_data.Phone_Number);
+                $("#ppl-input").attr("value", user_data.Number_of_People);
+                $("#genre-input").attr("value", user_data.Genre);
+                $("#desc-input").val(user_data.Description_of_act_offered);
+                document.querySelector(".pf-email").innerText = user.email;
             }
             else {
                 userRef.set({
@@ -45,9 +60,6 @@ function checkIfExistsorCreateProfile(user) {
         })
 }
 
-function updateProfileDOM(doc) {
-
-}
 
 function getUserProfilePic(user) {
     user.providerData.forEach(profile => {
@@ -55,33 +67,23 @@ function getUserProfilePic(user) {
     })
 }
 
-
 let map;
 
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById("map"), {
-//     center: { lat: -34.397, lng: 150.644 },
-//     zoom: 12,
-//   });
-// }
-
 function initMap() {
-    const service = new google.maps.DistanceMatrixService(); // instantiate Distance Matrix service
-      const matrixOptions = {
-        origins: ["41.8848274,-87.6320859", "41.878729,-87.6301087", "41.8855277,-87.6440611"], // technician locations
-        destinations: ["233 S Wacker Dr, Chicago, IL 60606"], // customer address
-        travelMode: 'DRIVING',
-        unitSystem: google.maps.UnitSystem.IMPERIAL
-      };
-      // Call Distance Matrix service
-      service.getDistanceMatrix(matrixOptions, callback);
-
-      // Callback function used to process Distance Matrix response
-      function callback(response, status) {
-        if (status !== "OK") {
-          alert("Error with distance matrix");
-          return;
-        }
-        console.log(response);        
-      }
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 12,
+  });
 }
+
+document.querySelector('.save-btn').addEventListener('click', () => {
+    const db = firebase.firestore();
+    var user = firebase.auth().currentUser;
+    db.collection('users').doc(user.email).set({
+        userName: $("#name-input").val(),
+        Phone_Number: $("#phone-input").val(),
+        Number_of_People: parseInt($("#ppl-input").val()),
+        Genre: $("#genre-input").val() ,
+        Description_of_act_offered: $("#desc-input").val(),
+    });
+})
