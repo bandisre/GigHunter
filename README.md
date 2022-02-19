@@ -4,7 +4,7 @@ A platform designed to connect local vendors with gigging musicians.
 
 ## The Inspiration
 
-As a musician myself, finding a gig with my band has always been an arduous task. Local vendors seldom advertise open mics or opportunities to perform. In response, we created GigHunter where vendors can post performance opportunities to connect with musicians within the area. Musicians can search for opportunities by inputting their zip code and the distance they're willing to travel. Then, the firebase backend uses Google Map APIs to display gigs within the inputted distance.
+As most of the team are musicains, they've noticed that finding a gig with their band has always been an arduous task. Local vendors seldom advertise open mics or opportunities to perform. In response, we created GigHunter where vendors can post performance opportunities to connect with musicians within the area. Musicians can search for opportunities by inputting their zip code and the distance they're willing to travel. Then, the firebase backend uses Google Map APIs to display gigs within the inputted distance.
 
 Built using:
 - Vanilla Javascript
